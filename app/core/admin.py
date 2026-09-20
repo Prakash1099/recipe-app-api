@@ -3,7 +3,7 @@ from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 # If we are goint to use translations
 from django.utils.translation import gettext_lazy as _
 
-from . models import User
+from . import models
 
 
 class UserAdmin(BaseUserAdmin):
@@ -40,5 +40,7 @@ class UserAdmin(BaseUserAdmin):
         }),
     )
 
-
-admin.site.register(User, UserAdmin)
+# We do this to manage the models through the django admin interface
+admin.site.register(models.User, UserAdmin)
+admin.site.register(models.Recipe)
+admin.site.register(models.Tag)

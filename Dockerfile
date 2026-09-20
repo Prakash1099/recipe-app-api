@@ -3,7 +3,7 @@ FROM python:3.9-alpine3.13
 LABEL maintainer="prakashukkaravel"
 
 #It should be ENV key=value
-ENV PYTHONUNBUFFERED 1 
+ENV PYTHONUNBUFFERED 1
 
 COPY ./requirements.txt /tmp/requirements.txt
 COPY ./requirements.dev.txt /tmp/requirements.dev.txt
@@ -28,7 +28,7 @@ RUN apk add --no-cache bash && \
     apk del .tmp-build-deps && \
     adduser \
         --disabled-password \
-        --no-create-home \
+        --home /home/django-user \
         django-user
 
 
